@@ -359,10 +359,10 @@ const Index = () => {
               data-tally-src="https://tally.so/embed/wdGxGy?dynamicHeight=1" 
               loading="lazy" 
               width="100%" 
-              height="272" 
-              frameBorder="0" 
-              marginHeight="0" 
-              marginWidth="0" 
+              height={272} 
+              frameBorder={0} 
+              marginHeight={0} 
+              marginWidth={0} 
               title="Join the waitlist"
               className="w-full"
             ></iframe>
