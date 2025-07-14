@@ -191,75 +191,193 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Blog Section */}
+      {/* Pricing Section */}
       <section className="px-6 py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                {t.blog.title}
-                <br />
-                <span className="text-blue-600">{t.blog.titleHighlight}</span>
-              </h2>
-              <Button className="bg-blue-600 hover:bg-blue-700 rounded-full px-8">
-                {t.blog.seeAll}
-              </Button>
-            </div>
-            
-            <div className="space-y-6">
-              {t.blog.articles.map((article, index) => (
-                <article key={index} className="flex space-x-4">
-                  <div className="w-24 h-24 bg-gray-300 rounded-lg flex-shrink-0"></div>
-                  <div>
-                    <p className="text-sm text-gray-500 mb-2">{article.date}</p>
-                    <h3 className="font-semibold text-lg mb-2">{article.title}</h3>
-                    <p className="text-gray-600 text-sm">{article.excerpt}</p>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {currentLanguage === 'fr' ? 'Tarifs' : 'Pricing'}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {currentLanguage === 'fr' ? 'Choisissez le plan qui vous convient' : 'Choose the plan that fits your needs'}
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Free Plan */}
+            <Card className="relative bg-white rounded-2xl shadow-sm border border-gray-200">
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Free</h3>
+                  <p className="text-gray-600 mb-6">
+                    {currentLanguage === 'fr' ? 'Testez l\'application' : 'Test the application'}
+                  </p>
+                  <div className="mb-8">
+                    <span className="text-4xl font-bold text-gray-900">0€</span>
+                    <span className="text-gray-600">/{currentLanguage === 'fr' ? 'mois' : 'month'}</span>
                   </div>
-                </article>
-              ))}
-            </div>
+                  <ul className="space-y-3 text-left mb-8">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Fonctionnalités de base' : 'Basic features'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Limité à 50 contacts' : 'Limited to 50 contacts'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Support communautaire' : 'Community support'}
+                      </span>
+                    </li>
+                  </ul>
+                  <Button variant="outline" className="w-full">
+                    {currentLanguage === 'fr' ? 'Commencer gratuitement' : 'Start for free'}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Essential Plan */}
+            <Card className="relative bg-white rounded-2xl shadow-lg border-2 border-blue-600">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-blue-600 text-white px-4 py-1">
+                  {currentLanguage === 'fr' ? 'Populaire' : 'Popular'}
+                </Badge>
+              </div>
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Essential</h3>
+                  <p className="text-gray-600 mb-6">
+                    {currentLanguage === 'fr' ? 'Toutes les fonctionnalités' : 'All features included'}
+                  </p>
+                  <div className="mb-8">
+                    <span className="text-4xl font-bold text-gray-900">1,5€</span>
+                    <span className="text-gray-600">/{currentLanguage === 'fr' ? 'mois' : 'month'}</span>
+                  </div>
+                  <ul className="space-y-3 text-left mb-8">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Toutes les fonctionnalités' : 'All features'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Contacts illimités' : 'Unlimited contacts'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Support prioritaire' : 'Priority support'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Exportation de données' : 'Data export'}
+                      </span>
+                    </li>
+                  </ul>
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                    {currentLanguage === 'fr' ? 'Choisir Essential' : 'Choose Essential'}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Business Plan */}
+            <Card className="relative bg-white rounded-2xl shadow-sm border border-gray-200">
+              <CardContent className="p-8">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Business</h3>
+                  <p className="text-gray-600 mb-6">
+                    {currentLanguage === 'fr' ? 'Pour des besoins spécifiques' : 'For specific needs'}
+                  </p>
+                  <div className="mb-8">
+                    <span className="text-4xl font-bold text-gray-900">
+                      {currentLanguage === 'fr' ? 'Sur mesure' : 'Custom'}
+                    </span>
+                  </div>
+                  <ul className="space-y-3 text-left mb-8">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Toutes les fonctionnalités Essential' : 'All Essential features'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Intégrations personnalisées' : 'Custom integrations'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Support dédié' : 'Dedicated support'}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                      <span className="text-gray-600">
+                        {currentLanguage === 'fr' ? 'Formation incluse' : 'Training included'}
+                      </span>
+                    </li>
+                  </ul>
+                  <Button variant="outline" className="w-full">
+                    {currentLanguage === 'fr' ? 'Nous contacter' : 'Contact us'}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="px-6 py-16 bg-blue-600">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">
-            {t.cta.title}
-            <br />
-            {t.cta.titleHighlight}
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {t.cta.subtitle}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-lg">
-              <Download className="mr-2 h-5 w-5" />
-              App Store
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg">
-              <Download className="mr-2 h-5 w-5" />
-              Google Play
-            </Button>
+      {/* Tally Form Section */}
+      <section className="px-6 py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {currentLanguage === 'fr' ? 'Rejoignez la liste d\'attente' : 'Join the waitlist'}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {currentLanguage === 'fr' ? 'Soyez les premiers informés du lancement de Memocall' : 'Be the first to know when Memocall launches'}
+            </p>
           </div>
           
-          <div className="relative max-w-md mx-auto">
-            <PhoneMockup 
-              className="mx-auto"
-              backgroundColor="bg-blue-100"
-              defaultContent={
-                <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=600&fit=crop" 
-                  alt="Application Memocall" 
-                  className="w-full h-full object-cover rounded-[1.5rem]"
-                />
-              }
-            />
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <iframe 
+              data-tally-src="https://tally.so/embed/wdGxGy?dynamicHeight=1" 
+              loading="lazy" 
+              width="100%" 
+              height="272" 
+              frameBorder="0" 
+              marginHeight="0" 
+              marginWidth="0" 
+              title="Join the waitlist"
+              className="w-full"
+            ></iframe>
           </div>
         </div>
       </section>
+
+      {/* Tally Script */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+          `
+        }}
+      />
     </div>
   );
 };
